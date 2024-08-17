@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - D11 Café</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <script src="/js/main.js" defer></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="#">
+            <img src="/Public/image/logo.jpeg" alt="D11 Café Logo" height="50">
+            D11 Café Admin
+        </a>
+    </nav>
+
+    <div class="container mt-5">
+        <h2>Admin Dashboard</h2>
+        <form id="add-item-form">
+            <div class="form-group">
+                <label for="name">Item Name:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" class="form-control">
+                    <option value="breakfast">Breakfast</option>
+                    <option value="lunch">Lunch</option>
+                    <option value="drinks">Drinks</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="available">Available:</label>
+                <input type="checkbox" id="available" name="available" class="form-check-input">
+            </div>
+            <button type="submit" class="btn btn-warning">Add Item</button>
+        </form>
+    </div>
+</body>
+</html>

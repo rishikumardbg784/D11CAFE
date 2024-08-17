@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - D11 Café</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+        <a class="navbar-brand" href="index.html">
+            <img src="/public/image/logo.jpeg" alt="D11 Café Logo" height="50">
+            D11 Café
+        </a>
+    </nav>
+
+    <!-- Menu Items Section -->
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">Menu Items</h2>
+        <div class="row" id="menu-items">
+            <!-- Food items will be dynamically populated here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-warning text-white text-center py-3">
+        <p>© 2024 D11 Café. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Script to Fetch and Display Menu Items -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const category = new URLSearchParams(window.location.search).get('category');
+            fetch(`/api/menu?category=${category}`)
+                .then(response => response.json())
+                .then(data => {
+                    const menuContainer = document.getElementById('menu-items');
+                    data.forEach(item => {
+                        const menuItem = `
+                            <div class="col-md-4">
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${item.name}</h5>
+                                        <p>${item.available ? 'Available' : 'Unavailable'}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                        menuContainer.innerHTML += menuItem;
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
