@@ -2,5 +2,8 @@
   "name": "D11 CAFE",
   "lockfileVersion": 3,
   "requires": true,
-  "packages": {}
+  "packages": {},
+  "dependencies": {
+    "express": "^4.19.2"
+  }
 }
